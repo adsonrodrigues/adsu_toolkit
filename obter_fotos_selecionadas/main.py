@@ -28,7 +28,7 @@ def ler_arquivo(nome_arquivo_entrada):
 def main():
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
     nome_arquivo_entrada = os.path.join(diretorio_atual, 'fotos_selecionadas.txt')
-    nome_arquivo_saida = os.path.join(diretorio_atual, 'fotos_selecionadas.csv')
+    nome_arquivo_saida = os.path.join(diretorio_atual, 'lightroom.csv')
     parser = argparse.ArgumentParser(description='Script para buscar correspondências em um arquivo de texto.')
     parser.add_argument('padrao', type=str, help='Padrão para buscar correspondências')
 
