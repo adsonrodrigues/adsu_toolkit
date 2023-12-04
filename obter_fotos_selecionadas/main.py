@@ -1,11 +1,12 @@
 import re
 import csv
 import os
+import argparse
 
 diretorio_atual = os.getcwd()
 
-def obter_fotos(texto):
-    padrao = r'TTF_\d+'
+def obter_fotos(texto, padrao):
+    padrao = r'\b' + re.escape(padrao) + r'_\d+\b'
     correspondencias = re.findall(padrao, texto)
     return correspondencias
     
@@ -29,10 +30,13 @@ def main():
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
     nome_arquivo_entrada = os.path.join(diretorio_atual, 'fotos_selecionadas.txt')
     nome_arquivo_saida = os.path.join(diretorio_atual, 'fotos_selecionadas.csv')
-    
+    parser = argparse.ArgumentParser(description='Script para buscar correspondências em um arquivo de texto.')
+    parser.add_argument('padrao', type=str, help='Padrão para buscar correspondências')
+
+    args = parser.parse_args()
     
     fotos_selecionadas = ler_arquivo(nome_arquivo_entrada)
-    fotos = obter_fotos(fotos_selecionadas)
+    fotos = obter_fotos(fotos_selecionadas, args.padrao)
     gerar_arquivo(nome_arquivo_saida, fotos)
 
 if __name__ == "__main__":
