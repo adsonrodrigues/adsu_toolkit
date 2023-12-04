@@ -11,10 +11,9 @@ def obter_fotos(texto, padrao):
     return correspondencias
     
 def gerar_arquivo(nome_arquivo, correspondencias):
+    linha_csv = ','.join(correspondencias)
     with open(nome_arquivo, 'w', newline='') as arquivo_csv:
-        escritor_csv = csv.writer(arquivo_csv)
-        for correspondencia in correspondencias:
-            escritor_csv.writerow([correspondencia])
+        arquivo_csv.write(linha_csv)
 
     print(f"Arquivo CSV '{nome_arquivo}' ")
     
