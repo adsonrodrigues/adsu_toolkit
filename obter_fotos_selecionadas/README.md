@@ -27,7 +27,7 @@ Este projeto permite buscar fotos selecionadas a partir de um arquivo de texto u
 
 _windows_
 ```bash
-   echo. > obter_fotos_selecionadas\fotos_selecionadas.txt
+   echo > obter_fotos_selecionadas\fotos_selecionadas.txt
 ```
 
 _linux_
