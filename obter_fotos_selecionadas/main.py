@@ -26,8 +26,10 @@ def ler_arquivo(nome_arquivo_entrada):
 
 
 def main():
-    nome_arquivo_entrada = os.path.join(diretorio_atual, 'obter_fotos_selecionadas', 'fotos_selecionadas.txt')
-    nome_arquivo_saida = os.path.join(diretorio_atual, 'obter_fotos_selecionadas', 'fotos_selecionadas.csv')
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    nome_arquivo_entrada = os.path.join(diretorio_atual, 'fotos_selecionadas.txt')
+    nome_arquivo_saida = os.path.join(diretorio_atual, 'fotos_selecionadas.csv')
+    
     
     fotos_selecionadas = ler_arquivo(nome_arquivo_entrada)
     fotos = obter_fotos(fotos_selecionadas)
